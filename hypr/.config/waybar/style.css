@@ -100,3 +100,7 @@ button:hover {
 #bluetooth.connected {
     color: @color-blue;
 }
+
+#custom-do-not-disturb.on {
+    color: @color-alert;
+}

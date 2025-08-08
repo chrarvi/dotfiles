@@ -172,9 +172,9 @@
     },
     "pulseaudio#sink": {
         "format": "{icon}",
-        "format-muted": "󰖁 ",
+        "format-muted": "󰖁",
         "format-icons": {
-            "default": [" ", " ", " "]
+            "default": ["", "", ""]
         },
         "tooltip-format": "Volume {volume}%",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -214,13 +214,16 @@
     },
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-        "format": " {status}",
+        "format": "",
+        "format-off": "󰂲",
+        "format-on": "",
         "format-no-controller": "",
         "format-disabled": "",
-        "format-connected": " {num_connections} connected",
+        "format-connected": "",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "bash ~/.config/waybar/widgets/bluetooth/toggle.sh"
     },
     "hypeland/submap": {
         "format": "{}",
@@ -251,8 +254,8 @@
         "signal": 10,
         "format": "{icon}",
         "format-icons": {
-            "on": "󰂛 ",
-            "off": "󰂚 "
+            "on": "󰂛",
+            "off": "󰂚"
         },
         "on-click": "bash ~/.config/waybar/widgets/do_not_disturb/toggle.sh",
         "return-type": "json",

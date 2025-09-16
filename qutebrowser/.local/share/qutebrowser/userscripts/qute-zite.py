@@ -5,6 +5,9 @@ import subprocess
 
 FIFO = open(os.environ["QUTE_FIFO"], "w")
 
+HOME = os.environ.get("HOME", "~/")
+ZITE_EXEC = os.path.join(HOME, "go", "bin", "zite")
+
 
 def notify(message):
     print('message-info "{}"'.format(message), file=FIFO, flush=True)
@@ -18,7 +21,7 @@ def main():
     url = os.environ["QUTE_URL"]
     notify(f"[zite] Fetching {url} and PDF...")
 
-    cmd = ["zite", "fetch", url]
+    cmd = [ZITE_EXEC, "fetch", url]
     result = subprocess.run(cmd)
     if result.returncode == 1:
         notify_error(f"[zite] Failed to fetch: {result.stderr}")

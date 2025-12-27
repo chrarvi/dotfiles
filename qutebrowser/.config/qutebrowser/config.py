@@ -6,11 +6,10 @@ config.source("ef-dream.py")
 c.url.start_pages = ["qute://start/"]
 c.fonts.web.size.default = 14
 c.fonts.default_family = "iosevka"
-c.fonts.default_size = "10pt"
+c.fonts.default_size = "11pt"
 c.qt.highdpi = True
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = "never"
-c.content.blocking.method = "both"
 c.content.webgl = True
 c.content.autoplay = False
 c.content.javascript.clipboard = "access"
@@ -25,7 +24,6 @@ c.content.blocking.adblock.lists = [
     "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
     "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
     "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
-    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt",
     "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/thirdparties/pgl.yoyo.org/as/serverlist",
     "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts",
     "https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt",
@@ -33,6 +31,7 @@ c.content.blocking.adblock.lists = [
     "https://easylist.to/easylist/easylist.txt",
     "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt",
 ]
+c.content.blocking.method = "both"
 c.content.blocking.enabled = True
 
 c.downloads.location.prompt = True

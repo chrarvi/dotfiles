@@ -3,6 +3,10 @@
 name="$1"
 filename=/tmp/"$1"
 
+# Percentage of screen taken up by scratch buffer
+PERCENT_X=80
+PERCENT_Y=80
+
 bspc_write_nodeid() {
     while true
     do
@@ -42,7 +46,9 @@ create_terminal(){
 
 if ! ps -ef | grep -q "[c]lass=$name"
 then
-    bspc rule -a "$name" --one-shot state=floating sticky=on hidden=on center=true rectangle=1600x900+0+0
+    rect=$($HOME/.config/sxhkd/scripts/rectangle.sh ${PERCENT_X} ${PERCENT_Y})
+    echo $rect
+    bspc rule -a "$name" --one-shot state=floating sticky=on hidden=on center=true rectangle=$rect
     case "$name" in
         "htop")
             create_terminal htop

@@ -23,14 +23,22 @@ super + {_,shift} + p
 ## scratch terminal
 super + o ; s
   ~/.config/sxhkd/scripts/scratch.sh terminal
+super + apostrophe
+  ~/.config/sxhkd/scripts/scratch.sh terminal
 ## ranger
 super + o ; r
+  ~/.config/sxhkd/scripts/scratch.sh ranger
+super + y
   ~/.config/sxhkd/scripts/scratch.sh ranger
 ## htop
 super + o ; h
   ~/.config/sxhkd/scripts/scratch.sh htop
+super + h
+  ~/.config/sxhkd/scripts/scratch.sh htop
 ## volume
 super + o ; v
+  ~/.config/sxhkd/scripts/scratch.sh pulsemixer
+super + v
   ~/.config/sxhkd/scripts/scratch.sh pulsemixer
 
 ## firefox

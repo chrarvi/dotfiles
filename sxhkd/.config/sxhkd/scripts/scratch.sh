@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 name="$1"
+tag="<scratch>"
 filename=/tmp/"$1"
 
 # Percentage of screen taken up by scratch buffer
@@ -11,9 +12,9 @@ bspc_write_nodeid() {
     while true
     do
         flag=false
-        for id in $(bspc query -d focused -N -n .floating.sticky.hidden)
+        for id in $(bspc query -d focused -N -n .floating.hidden)
         do
-            bspc query --node $id -T | grep -q $name && { echo $id > $filename; flag=true; break; }
+            bspc query --node $id -T | grep -q "${tag}${name}" && { echo $id > $filename; flag=true; break; }
         done
         [[ "$flag" == "true" ]] && break
         sleep 0.1s
@@ -21,9 +22,9 @@ bspc_write_nodeid() {
 }
 
 hide_all_except_current(){
-    for id in $(bspc query -d focused -N -n .floating.sticky.!hidden)
+    for id in $(bspc query -d focused -N -n .floating.!hidden)
     do
-        bspc query --node $id -T | grep -qv $name && bspc node $id --flag hidden=on
+        bspc query --node $id -T | grep -qv "${tag}${name}" && bspc node $id --flag hidden=on
     done
 }
 
@@ -41,14 +42,14 @@ toggle_hidden() {
 }
 
 create_terminal(){
-    alacritty --class="$name","$name" -e tmux new-session -A -s $1 "$1" &
+    st -c "${tag}${name}" -e tmux new-session -A -s $1 "$1" &
 }
 
-if ! ps -ef | grep -q "[c]lass=$name"
+if ! ps -ef | grep -q "\-[c] ${tag}${name}"
 then
     rect=$($HOME/.config/sxhkd/scripts/rectangle.sh ${PERCENT_X} ${PERCENT_Y})
     echo $rect
-    bspc rule -a "$name" --one-shot state=floating sticky=on hidden=on center=true rectangle=$rect
+    bspc rule -a "${tag}${name}" --one-shot state=floating hidden=on center=true rectangle=$rect
     case "$name" in
         "htop")
             create_terminal htop

@@ -8,8 +8,8 @@ super + Escape
 
 # PROGRAM_LAUNCHING
 ## terminal
-super + o ; Return
-  alacritty
+super + Return
+  st
 ## tmux existing sessions
 super + o ; T
   ~/.config/sxhkd/scripts/rofi_tmux.sh

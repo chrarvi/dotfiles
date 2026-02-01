@@ -54,13 +54,13 @@ if [[ -n "$selected_session" ]]; then
         remote_name=${selected_session% (remote)}
         # TODO: Make this request the sessions over ssh!
         session_name="workspace"
-        alacritty -e ssh -A -t $remote_name tmux new-session -A -s $session_name &
+        st -e ssh -A -t $remote_name tmux new-session -A -s $session_name &
     elif [[ "$name" =~ "$selected_session" ]]; then
         # Attach to the selected tmux session in a new terminal window
-        alacritty -e tmux new-session -A -s "$selected_session" &
+        st -e tmux new-session -A -s "$selected_session" &
     else
         # Load up tmuxp layout
         session_name=${selected_session% (new)}
-        alacritty -e tmuxp load $name --yes &
+        st -e tmuxp load $name --yes &
     fi
 fi

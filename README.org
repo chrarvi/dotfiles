@@ -10,7 +10,7 @@ Hello! This is the ever changing mess that are my dotfiles.
 | *OS*                  | arch linux        |
 | *Bar*                 | polybar           |
 | *Shell*               | zsh               |
-| *Terminal*            | alacritty         |
+| *Terminal*            | st                |
 | *Editor*              | null emacs / nvim |
 | *File manager*        | ranger            |
 | *Launcher*            | rofi              |

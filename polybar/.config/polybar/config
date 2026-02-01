@@ -536,7 +536,7 @@ menu-0-1-exec = poweroff
 menu-0-2 = logout
 menu-0-2-exec = bspc quit
 menu-0-3 = term
-menu-0-3-exec = alacritty
+menu-0-3-exec = st
 menu-0-4 = dock
 menu-0-4-exec = ~/.config/bspwm/mons.sh
 

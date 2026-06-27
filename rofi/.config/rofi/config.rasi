@@ -8,7 +8,7 @@
  configuration {
     modi:                        "ssh,drun,run,window";
     combi-modi:                  "window,drun,ssh";
-    font:                        "iosevka 12";
+    font:                        "Iosevka Nerd Font Mono 12";
     kb-remove-to-eol:            "";
     kb-accept-entry:             "Control+m,Return";
     kb-row-up:                   "Up,Control+k";

@@ -5,7 +5,7 @@ config.source("ef-dream.py")
 
 c.url.start_pages = ["qute://start/"]
 c.fonts.web.size.default = 14
-c.fonts.default_family = "iosevka"
+c.fonts.default_family = "Iosevka"
 c.fonts.default_size = "11pt"
 c.qt.highdpi = True
 c.colors.webpage.darkmode.enabled = True

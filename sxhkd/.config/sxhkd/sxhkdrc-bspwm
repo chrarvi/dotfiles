@@ -62,10 +62,6 @@ super + shift + {Left,Down,Up,Right}
     bspc node -s "$dir.local" --follow \
         || bspc node -m "$dir" --follow
 
-# focus the node for the given path jump
-super + {u,b,comma,period}
-    bspc node -f @{parent,brother,first,second}
-
 # focus the next/previous node in the current desktop
 super + {_,shift + }Tab
     bspc node -f {next,prev}.local.leaf

@@ -5,7 +5,7 @@ xset +fp "$HOME/.fonts"
 xset fp rehash
 xset -b
 xsetroot -cursor_name left_ptr
-setxkbmap us algtr-intl
+setxkbmap us altgr-intl
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 function get_color {
@@ -88,12 +88,12 @@ if [ "$(hostname)" = "station" ]; then
     # run mullvad-vpn &
     # run cinny &
     run zotero --headless &
-    run discord-canary &
+    run discord &
 elif [ "$(hostname)" = "shuttle" ]; then
     run picom --config ~/.config/picom/picom.conf &
     run dropbox start &
     # run mullvad-vpn &
-    run discord-canary &
+    run discord &
     ~/.config/bspwm/mons.sh startup
 elif [ "$(hostname)" = "u5cg4373yhk" ]; then
     xrandr --output DP-0 --off --output DP-1 --off \

@@ -72,6 +72,9 @@ super + o ; p
 ## Emacs client
 super + o ; c ; c
   emacsclient -s null -c
+super + c
+  emacsclient -s null -c
+
 ## Emacs nonclient
 super + o; c ; C
   emacs --init-directory ~/.config/null_emacs

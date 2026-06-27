@@ -107,11 +107,12 @@ if command -v tmux >/dev/null 2>&1; then
         zle reset-prompt
     }
     zle -N tmux_sessionizer
+    bindkey -r '^F'
     bindkey -M viins '^F' tmux_sessionizer
     bindkey -M vicmd '^F' tmux_sessionizer
 fi
 
-alias em="TERM=xterm-direct emacsclient -s null -nw ./"
+alias em="emacsclient -s null -nw ./"
 alias feh="feh --draw-filename -B 'black' --scale-down -R 5"
 
 if command -v pyenv > /dev/null 2>&1; then

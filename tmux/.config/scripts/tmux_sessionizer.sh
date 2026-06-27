@@ -15,12 +15,15 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] || [[ -z $tmux_running ]]; then
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    echo "tmux is not running, starting a new tmux session"
     tmux new-session -A -s $selected_name -c $selected
-elif ! tmux has-session -t=$selected_name 2> /dev/null; then
+elif [[ -z $TMUX ]] || ! tmux has-session -t=$selected_name 2>/dev/null; then
+    echo "No tmux session found, starting a new one."
     tmux new -s $selected_name -c $selected -d
     tmux switch-client -t $selected_name
 else
+    echo "Switching to existing tmux session."
     tmux switch-client -t $selected_name
 fi
 

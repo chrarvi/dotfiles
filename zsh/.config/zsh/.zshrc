@@ -103,8 +103,8 @@ fi
 if command -v tmux >/dev/null 2>&1; then
     alias ts="~/.config/scripts/tmux_sessionizer.sh"
     tmux_sessionizer() {
-        ~/.config/scripts/tmux_sessionizer.sh
-        zle reset-prompt
+        BUFFER="~/.config/scripts/tmux_sessionizer.sh"
+        zle accept-line
     }
     zle -N tmux_sessionizer
     bindkey -r '^F'

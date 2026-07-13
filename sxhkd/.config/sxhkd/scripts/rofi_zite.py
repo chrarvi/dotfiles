@@ -8,6 +8,7 @@ Requirements:
 """
 
 import os
+import argparse
 import sys
 import json
 import subprocess
@@ -20,8 +21,18 @@ HOME = os.environ["HOME"]
 ZITE_DIR = os.path.join(HOME, "zite")
 ZITE_INDEX = os.path.join(ZITE_DIR, "index.json")
 
-VIEWER = "xdg-open %u"
+DEFAULT_VIEWER = "xdg-open %u"
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="rofi-zite")
+
+    parser.add_argument(
+        "--viewer", type=str, default=DEFAULT_VIEWER, help=(
+            "Application to open pdfs with, including '%%u' to indicate path arg. "
+            f"Defaults to {DEFAULT_VIEWER.replace("%", "%%")}"
+        )
+    )
+    return parser.parse_args()
 
 def open_file(app, file_path, only_return_command=False):
     """Attempt to open ``file_path`` using ``app``.
@@ -73,6 +84,8 @@ def format_entry(entry: Dict[str, Any]) -> str:
     """
 
 def main():
+    args = parse_args()
+
     with open(ZITE_INDEX, "r") as f:
         index = json.load(f)
 
@@ -92,9 +105,9 @@ def main():
 
     if os.path.isfile(pdf_path):
         try:
-            open_file(VIEWER, pdf_path)
+            open_file(args.viewer, pdf_path)
         except FileNotFoundError:
-            viewer_command = open_file(VIEWER, pdf_path, only_return_command=True)
+            viewer_command = open_file(args.viewer, pdf_path, only_return_command=True)
             viewer_command = [str(cmd_part) for cmd_part in viewer_command]
             viewer_command = " ".join(viewer_command)
             show_error(

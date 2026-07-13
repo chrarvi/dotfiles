@@ -55,11 +55,11 @@ super + o ; b ; Q
 
 ## PDF
 super + o ; P
-  ~/.config/sxhkd/scripts/rofi_zotero.py
+  ~/.config/sxhkd/scripts/rofi_zotero.py --viewer zathura
 
 ## Zite
 super + o ; Z
-  ~/.config/sxhkd/scripts/rofi_zite.py
+  ~/.config/sxhkd/scripts/rofi_zite.py --viewer zathura
 
 ## emulator games
 super + o ; g ; e

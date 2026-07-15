@@ -33,7 +33,6 @@ if ! pgrep ssh-agent > /dev/null; then
     export SSH_AGENT_PID="$SSH_AGENT_PID"
 fi
 
-exist starship && eval "$(starship init zsh)"
 exist zoxide && eval "$(zoxide init zsh)"
 
 if exist fzf; then

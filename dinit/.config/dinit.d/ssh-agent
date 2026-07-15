@@ -1,0 +1,4 @@
+type = process
+load-options = sub-vars
+command = /usr/bin/ssh-agent -D -a $HOME/.cache/ssh/ssh-agent.socket
+

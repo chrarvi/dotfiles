@@ -40,12 +40,6 @@ if exist fzf; then
     bindkey '^r' fzf-history-widget
 fi
 
-if exist eza; then
-    alias ls='eza -l'
-elif exist exa; then
-    alias ls='exa -l'
-fi
-exist bat && alias cat='bat'
 if exist tmux; then
     alias ts="~/.config/scripts/tmux_sessionizer.sh"
     tmux_sessionizer() {

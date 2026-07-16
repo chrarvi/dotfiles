@@ -16,7 +16,6 @@ Hello! This is the ever changing mess that are my dotfiles.
 | *Launcher*            | rofi              |
 | *Browser*             | qutebrowser       |
 | *Notification daemon* | dunst             |
-| *Compositor*          | none              |
 
 * Install
 Most of these are installable by using =stow=. Configs stored outside of the home

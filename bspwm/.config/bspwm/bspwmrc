@@ -80,7 +80,6 @@ run spotify --force-device-scale-factor=0.75 &
 if [ "$(hostname)" = "station" ]; then
     ~/.config/bspwm/mons_xrandr.sh startup
     ~/.config/bspwm/mons_xrandr.sh 2_hor.layout
-    # run picom --config ~/.config/picom/picom.conf &
     run redshift &
     run easyeffects --gapplication-service &
     # run steam-native &
@@ -90,7 +89,6 @@ if [ "$(hostname)" = "station" ]; then
     run zotero --headless &
     run discord &
 elif [ "$(hostname)" = "shuttle" ]; then
-    run picom --config ~/.config/picom/picom.conf &
     run dropbox start &
     # run mullvad-vpn &
     run discord &
@@ -100,7 +98,6 @@ elif [ "$(hostname)" = "u5cg4373yhk" ]; then
            --output DP-2 --off --output HDMI-0 --off \
            --output DP-3 --primary --mode 3840x2400 --pos 0x0 --rotate normal
     ~/.config/bspwm/mons.sh 0
-    run picom &
     run dropbox start &
     run slack &
     run teams-for-linux &

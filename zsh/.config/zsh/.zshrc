@@ -28,9 +28,10 @@ source $HOME/.zsh/fzf-tab/fzf-tab.plugin.zsh
 
 # ssh agent
 if ! pgrep ssh-agent > /dev/null; then
-    eval "$(ssh-agent -c)"
-    export SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
-    export SSH_AGENT_PID="$SSH_AGENT_PID"
+    # use: `systemctl --user enable --now ssh-agent.socket`
+    # which is included in `openssh-9.4p1-3`
+    # or the dinit service in `dinit/.config/dinit.d/ssh-agent`
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 exist zoxide && eval "$(zoxide init zsh)"

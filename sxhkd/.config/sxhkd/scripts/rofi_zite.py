@@ -76,8 +76,19 @@ def show_error(error_msg, rofi_args=None):
 
 def format_entry(entry: Dict[str, Any]) -> str:
     title = entry["title"]
-    year = datetime.datetime.fromisoformat(entry["published_date"]).year
-    authors = ", ".join(entry["authors"])
+    try:
+        year = datetime.datetime.fromisoformat(entry["published_date"]).year
+    except KeyError as e:
+        year = "unknown"
+    except ValueError as e:
+        print(f"Failed to parse `{entry["published_date"]}` as isoformat: {e}")
+        year = "unknown"
+
+    if "authors" in entry and entry["authors"] is not None:
+        authors = ", ".join(entry["authors"])
+    else:
+        authors = "unknown"
+
     return f"""\
 <b>{title}</b>
 <span foreground=\"lightgreen\">({year})</span> <span foreground=\"gray\"><i>{authors}</i></span>

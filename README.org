@@ -12,7 +12,7 @@ Hello! This is the ever changing mess that are my dotfiles.
 | *Shell*               | zsh               |
 | *Terminal*            | st                |
 | *Editor*              | null emacs / nvim |
-| *File manager*        | ranger            |
+| *File manager*        | lf                |
 | *Launcher*            | rofi              |
 | *Browser*             | qutebrowser       |
 | *Notification daemon* | dunst             |

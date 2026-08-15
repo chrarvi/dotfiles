@@ -57,8 +57,8 @@ then
         "terminal")
             create_terminal $SHELL
             ;;
-        "ranger")
-            create_terminal ranger
+        "lf")
+            create_terminal lf
             ;;
         "pulsemixer")
             create_terminal pulsemixer

@@ -27,9 +27,9 @@ super + apostrophe
   ~/.config/sxhkd/scripts/scratch.sh terminal
 ## ranger
 super + o ; r
-  ~/.config/sxhkd/scripts/scratch.sh ranger
+  ~/.config/sxhkd/scripts/scratch.sh lf
 super + y
-  ~/.config/sxhkd/scripts/scratch.sh ranger
+  ~/.config/sxhkd/scripts/scratch.sh lf
 ## htop
 super + o ; h
   ~/.config/sxhkd/scripts/scratch.sh htop
@@ -103,7 +103,7 @@ XF86Audio{Lower,Raise}Volume
 
 # Lock
 super + o ; l
-  betterlockscreen -l
+  slock
 
 # Brightness
 XF86MonBrightnessDown

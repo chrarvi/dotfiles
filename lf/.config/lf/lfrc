@@ -1,0 +1,15 @@
+set period 1
+set info size
+set dircounts
+
+map p : paste; clear
+
+map d push %mkdir<space>
+
+cmd trash %trash-put $fx
+map D trash
+
+set shell zsh
+map Q %lf -remote "send $id :cd \"$lf_user_OLDPWD\"; quit"
+&lf -remote "send $id set user_OLDPWD \"$PWD\""
+

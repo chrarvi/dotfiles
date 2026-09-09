@@ -4,9 +4,10 @@ set dircounts
 
 map p : paste; clear
 
+map a push %touch<space>
 map d push %mkdir<space>
 
-cmd trash %trash-put $fx
+cmd trash %set -f; mkdir -p ~/.trash && mv -t ~/.trash -- $fx
 map D trash
 
 set shell zsh

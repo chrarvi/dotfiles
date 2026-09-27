@@ -89,10 +89,10 @@ if [ "$(hostname)" = "station" ]; then
     run zotero --headless &
     run discord &
 elif [ "$(hostname)" = "shuttle" ]; then
-    run dropbox start &
-    # run mullvad-vpn &
+    ~/.config/bspwm/mons_xrandr.sh startup
+    xrandr --output eDP-1 --primary --mode 1920x1080  
     run discord &
-    ~/.config/bspwm/mons.sh startup
+    ~/.config/polybar/scripts/launch.sh
 elif [ "$(hostname)" = "u5cg4373yhk" ]; then
     xrandr --output DP-0 --off --output DP-1 --off \
            --output DP-2 --off --output HDMI-0 --off \

@@ -39,7 +39,7 @@ module-margin-right = 1
 
 font-0 = Iosevka:size=9
 font-1 = FontAwesome:size=10
-font-2 = Material\ Icons:size=9
+font-2 = "Material Icons:size=9"
 
 wm-restack = bspwm
 
@@ -53,20 +53,18 @@ modules-right = do-not-disturb volume filesystem temperature vpn-openvpn-status 
 [bar/shuttle-topbar]
 inherit = bar/base
 
-font-0 = iosevka:size=10
-font-1 = FontAwesome:size=10
-font-2 = Material\ Icons:size=10
+font-0 = "Iosevka Nerd Font Propo:size=10"
 
-modules-left = tray spotify bspwm-windows bspwm-modes
-modules-center = bspwm
-modules-right = do-not-disturb volume filesystem temperature vpn-openvpn-status wlan battery date time powermenu
+modules-left = bspwm-windows bspwm-modes
+modules-center = bspwm-new
+modules-right = temperature battery date time powermenu
 
 [bar/work-topbar]
 inherit = bar/base
 
-font-0 = iosevka:size=10
-font-1 = FontAwesome:size=10
-font-2 = Material\ Icons:size=10
+font-0 = "iosevka:size=10"
+font-1 = "FontAwesome:size=10"
+font-2 = "Material Icons:size=10"
 
 modules-left = tray spotify-prev spotify-play-pause spotify-next bluetooth-menu bluetooth bspwm-windows bspwm-modes
 modules-center = bspwm-new
@@ -76,9 +74,9 @@ wm-restack = bspwm
 
 [bar/external]
 inherit = bar/base
-font-0 = iosevka:size=10
-font-1 = FontAwesome:size=10
-font-2 = Material\ Icons:size=10
+font-0 = "iosevka:size=10"
+font-1 = "FontAwesome:size=10"
+font-2 = "Material Icons:size=10"
 
 modules-left = bspwm-windows bspwm-modes
 modules-center = bspwm-new
@@ -494,12 +492,12 @@ animation-charging-font = 2
 [module/temperature]
 type = internal/temperature
 thermal-zone = 20
+zone-type = x86_pkg_temp
 warn-temperature = 80
 
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 
 label = %temperature-c%
 label-warn = %temperature-c%

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Layouts:
 # 1 monitor: p
@@ -29,7 +29,7 @@ function monitor_add() {
     bspc desktop -r temp
 
     # Reorder
-    bspc wm -O "$1" "%$PRIMARY_MONITOR"
+    bspc wm -O "$1" "%${PRIMARY_MONITOR}"
 }
 
 function monitor_remove() {
@@ -118,12 +118,12 @@ function main() {
         "startup")
             cmd="nvidia-settings --assign \"CurrentMetaMode=$(nvidia_command $PRIMARY_MONITOR)\""
             eval $cmd
-            bspc monitor "%$PRIMARY_MONITOR" -d 1 2 3 4 5 6 7 8 9 10
+            bspc monitor "%${PRIMARY_MONITOR}" -d 1 2 3 4 5 6 7 8 9 10
             ;;
 
         "select")
             selected=$(find ~/.config/bspwm/monitors -printf '%f\n' -name '*.layout' \
-                           | grep -e "^$N_MONITORS" -e "undocked" \
+                           | grep -e "^${N_MONITORS}" -e "undocked" \
                            | sed 's/ /\n/g' \
                            | rofi -dmenu -p "Select monitor layout" -no-custom)
 

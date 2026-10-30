@@ -7,6 +7,7 @@ dirs=(
         ~/Dropbox/org 
         ~/repos 
         ~/repos/work 
+        ~/repos/chrarvi 
         ~/work 
         )
 

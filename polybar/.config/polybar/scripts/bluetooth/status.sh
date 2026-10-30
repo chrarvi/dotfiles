@@ -1,19 +1,25 @@
 #!/usr/bin/env sh
 
-name=`bluetoothctl info | grep "Name" | sed 's/^.*: //'`
-onoff=`bluetoothctl show | grep "Powered" | sed 's/^.*: //'`
-MAC=`bluetoothctl info | awk '/^Device/ {print $2}')`
+MAC=$(bluetoothctl devices Connected | awk 'NR == 1 {print $2}')
 
-if [ $onoff = "yes" ]
-then
-    if [ ! "$name" ]
-    then
+if [ -z "$MAC" ]; then
+    echo "on"
+    exit 0
+fi
+
+name=$(bluetoothctl info "$MAC" |
+    awk -F': ' '/^[[:space:]]*Name:/ {print $2; exit}')
+
+onoff=$(bluetoothctl show |
+    awk -F': ' '/^[[:space:]]*Powered:/ {print $2; exit}')
+
+if [ "$onoff" = "yes" ]; then
+    if [ -z "$name" ]; then
         echo "on"
     else
-        # level=`~/.config/polybar/scripts/bluetooth/battery_level/bluetooth_battery.py $MAC` &&
-        # level=`echo ${level} | awk '{print $6}'` &&
-        echo "${name}"
+        echo "$name"
     fi
 else
     echo ""
 fi
+
